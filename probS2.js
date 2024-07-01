@@ -29,9 +29,10 @@ console.log(sum)
 
 
 //2) Write a program to print the difference between even sum and odd sum
-// num="163382";
 
-    
+     
+      num="163382";
+
   sum=0
     sub=0
   for(i=0;i<=num.length-1;i++){
