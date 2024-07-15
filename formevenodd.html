@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="h1"></h1>
+    <form id="form1">
+        <label >Input:</label>
+     <input type="text" id="ip1">
+     <input type="submit" value="submit">
+
+    </form>
+
+    <script>
+
+        let ip1=document.getElementById("ip1")
+        let frm1=document.getElementById("form1")
+        let h1=document.getElementById("h1")
+
+
+
+        frm1.addEventListener("submit",(e)=>{
+
+            console.log(e)
+            e.preventDefault()
+           
+           if(ip1.value%2==0){
+
+            h1.innerHTML= ip1.value+" "+"is  even number"
+
+           }
+           else if(ip1.value%2==1){
+            h1.innerHTML= ip1.value+" " +"is odd number"
+           }
+           else{
+            h1.innerHTML= "pls provide valid number"
+           }
+        })
+     
+
+    </script>
+</body>
+
+</html>
