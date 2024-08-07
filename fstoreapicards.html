@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        border: 2px solid #e434d5;
+        border-radius: 10px;
+      }
+
+      button{
+   position: absolute;
+  /* top: 300px; */
+  bottom:10px;
+  right:170px;
+  width: 90px;
+  height: 30px;
+  border: 3px solid #73AD21;
+  border-radius: 20px;
+ 
+}
+/* 
+button:hover {
+  color: #FF00FF;
+  background-color: red;
+} */
+    
+    </style>
+  </head>
+  <body>
+    <div id="container">
+    </div>
+
+    <script>
+      let data = fetch("https://fakestoreapi.com/products");
+
+         
+      let cntr = document.getElementById("container");
+      cntr.style.display = "flex";
+      cntr.style.flexWrap = "wrap";
+
+      // document.write(data)
+      // console.log(data)
+      
+      data.then((a) => a.json())
+        .then((a) => {
+          console.log(a);
+          //  document.write(a)
+          let res = a;
+
+          for (k of res) {
+           
+            
+            let div = document.createElement("div");
+            let btn=document.createElement("button")
+            let title=document.createElement("h3")
+          
+            let category=document.createElement("h1")
+         
+
+
+
+       
+
+
+  
+            div.style.backgroundColor = "lightgreen";
+            div.style.height = "350px";
+            div.style.width = "400px";
+            div.style.margin = "30px";
+            div.style.position="relative";
+           div.innerHTML = `<img src="${k.image}" height="150px" "width="150px" >`;
+            div.style.borderRadius="60px";
+            div.style.border="2px solid black"
+         
+            // btn.style.border="2px solid black";
+            // btn.style.height="0px";
+            // btn.style.width="50px";
+            // btn.style.borderRadius="7px";
+            btn.style.backgroundColor="yellow";
+         btn.addEventListener("mouseover",()=>{
+
+           btn.style.backgroundColor="pink";
+         })
+
+         btn.addEventListener("mouseleave",()=>{
+
+        btn.style.backgroundColor="yellow";
+})
+
+btn.addEventListener("click",()=>{
+
+btn.style.backgroundColor="blue";
+})
+
+
+
+            btn.innerHTML=`$:${k.price}`
+
+            title.style.textAlign="center";
+            title.innerHTML= k.title
+
+            category.style.textAlign="center"
+            category.innerHTML=k.category
+            
+             
+
+
+
+          
+            
+              
+
+
+
+
+
+
+         
+             div.appendChild(category)
+             div.appendChild(title)
+             div.appendChild(btn)
+            cntr.appendChild(div);
+            document.body.appendChild(cntr);
+            
+
+          
+          }
+
+        });
+    </script>
+  </body>
+</html>
